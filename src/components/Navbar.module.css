@@ -55,19 +55,67 @@
     color: var(--color-gold);
 }
 
-.underline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--color-gold);
-    border-radius: 2px;
+/* Mobile Menu Button */
+.mobileToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
 }
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-gold);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Mobile Menu Content */
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-obsidian);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 90;
+    transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobileMenuOpen {
+    transform: translateY(0);
+}
+
+.mobileLink {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-platinum);
+    text-decoration: none;
+}
+
+.mobileLink:active {
+    color: var(--color-gold);
+}
+
 
 @media (max-width: 900px) {
     .navActions {
         display: none;
-        /* Mobile menu implementation deferred */
+    }
+    
+    .mobileToggle {
+        display: flex;
     }
 }

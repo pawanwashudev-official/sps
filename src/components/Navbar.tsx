@@ -2,12 +2,13 @@
 import Link from 'next/link';
 import NextImage from 'next/image';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import PremiumButton from './PremiumButton';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
-    const pathname = usePathname();
+    const [isOpen, setIsOpen] = useState(false);
 
     const links = [
         { href: '#home', label: 'Home' },
@@ -18,11 +19,14 @@ const Navbar = () => {
 
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
         e.preventDefault();
+        setIsOpen(false);
         const element = document.querySelector(href);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
         <motion.nav
@@ -43,6 +47,8 @@ const Navbar = () => {
                     </div>
                     <span><span className="text-gradient-gold">Students</span> Public School</span>
                 </Link>
+
+                {/* Desktop Menu */}
                 <div className={styles.navActions}>
                     <div className={styles.links}>
                         {links.map((link) => (
@@ -59,6 +65,32 @@ const Navbar = () => {
                     <PremiumButton variant="primary" onClick={() => document.getElementById('admissions')?.scrollIntoView({ behavior: 'smooth' })}>
                         Apply Now
                     </PremiumButton>
+                </div>
+
+                {/* Mobile Toggle */}
+                <button className={styles.mobileToggle} onClick={toggleMenu} aria-label="Toggle menu">
+                    <span className={styles.bar} style={{ transform: isOpen ? 'rotate(45deg) translate(5px, 6px)' : 'none' }} />
+                    <span className={styles.bar} style={{ opacity: isOpen ? 0 : 1 }} />
+                    <span className={styles.bar} style={{ transform: isOpen ? 'rotate(-45deg) translate(5px, -6px)' : 'none' }} />
+                </button>
+
+                {/* Mobile Menu Overlay */}
+                <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileMenuOpen : ''}`}>
+                    {links.map((link) => (
+                        <a
+                            key={link.href}
+                            href={link.href}
+                            className={styles.mobileLink}
+                            onClick={(e) => handleScroll(e, link.href)}
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+                    <div style={{ marginTop: '2rem' }}>
+                        <PremiumButton variant="primary" onClick={() => { setIsOpen(false); document.getElementById('admissions')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                            Apply Now
+                        </PremiumButton>
+                    </div>
                 </div>
             </div>
         </motion.nav>

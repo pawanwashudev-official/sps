@@ -24,6 +24,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import NoiseOverlay from "@/components/NoiseOverlay";
+import LiveBackground from "@/components/LiveBackground";
 
 // ... existing imports
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         <SmoothScrolling>
           <NoiseOverlay />
           <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative', zIndex: 1 }}>
+            <LiveBackground />
             <Navbar />
             <main style={{ flex: 1 }}>
               {children}
