@@ -1,0 +1,20 @@
+.footer {
+    background-color: var(--color-obsidian-light);
+    color: var(--color-platinum);
+    padding: 4rem 0 2rem;
+    margin-top: auto;
+    border-top: 1px solid var(--color-gold-dim);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
