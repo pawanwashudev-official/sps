@@ -5,39 +5,27 @@ import PremiumButton from './PremiumButton';
 
 export default function ContactSection() {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
-    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSendWhatsApp = (e: React.MouseEvent) => {
         e.preventDefault();
-        setStatus('submitting');
-
-        // Official GAS Web App URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby13OeqcdV0_X6oMCUALUkTWAqA2oiSX4Q7kxWeazP0uuAIEgsqSU4U3P5XvyFVsbtE/exec';
-
-        try {
-            // Using a simple fetch here.
-            // Note: Google Apps Script Web App prevents CORS by default for simple requests from different origins.
-            // Using 'no-cors' mode allows value transmission but the response body (status) is opaque.
-            // We assume success if no network error occurs.
-
-            await fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            // In 'no-cors' we can't check response.ok. 
-            // We assume it worked if we got here.
-            setStatus('success');
-            setFormData({ name: '', email: '', phone: '', message: '' });
-
-        } catch (error) {
-            console.error(error);
-            setStatus('error');
+        if (!formData.name || !formData.phone || !formData.message) {
+            alert('Please fill in Name, Phone, and Message to proceed.');
+            return;
         }
+        const text = `*New Admission Inquiry*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Message:* ${formData.message}`;
+        const encodedText = encodeURIComponent(text);
+        window.open(`https://wa.me/917004275302?text=${encodedText}`, '_blank');
+    };
+
+    const handleSendEmail = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (!formData.name || !formData.email || !formData.message) {
+            alert('Please fill in Name, Email, and Message to proceed.');
+            return;
+        }
+        const subject = encodeURIComponent('New Admission Inquiry');
+        const body = encodeURIComponent(`New Admission Inquiry\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`);
+        window.open(`mailto:schoolstudentpublic@gmail.com?subject=${subject}&body=${body}`, '_blank');
     };
 
     return (
@@ -90,7 +78,7 @@ export default function ContactSection() {
 
                 <div className="glass-panel" style={{ padding: '3rem', borderRadius: '1.5rem' }}>
                     <h3 style={{ fontSize: '1.5rem', color: 'var(--color-gold)', marginBottom: '2rem' }}>Send a Message</h3>
-                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                         <input
                             type="text"
                             placeholder="Your Name"
@@ -123,10 +111,14 @@ export default function ContactSection() {
                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                             required
                         />
-                        <PremiumButton variant="primary" type="submit">
-                            {status === 'submitting' ? 'Sending...' : status === 'success' ? 'Message Sent!' : 'Send Message'}
-                        </PremiumButton>
-                        {status === 'success' && <p style={{ color: 'green', marginTop: '1rem' }}>Thank you! We&apos;ll contact you shortly.</p>}
+                        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+                            <PremiumButton variant="primary" onClick={handleSendWhatsApp}>
+                                Send via WhatsApp
+                            </PremiumButton>
+                            <PremiumButton variant="secondary" onClick={handleSendEmail}>
+                                Send via Email
+                            </PremiumButton>
+                        </div>
                     </form>
                 </div>
             </motion.div>

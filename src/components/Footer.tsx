@@ -24,8 +24,26 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1rem', width: '100%' }}>
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
                     <p>&copy; {new Date().getFullYear()} Students Public School. All rights reserved.</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexDirection: 'column' }}>
+                        <h4 style={{ color: 'var(--color-platinum)' }}>About Developer</h4>
+                        <a
+                            href="https://pawanwashudev.neubofy.in"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                padding: '0.5rem 1rem',
+                                background: 'var(--color-gold)',
+                                color: 'var(--color-obsidian)',
+                                borderRadius: '0.5rem',
+                                textDecoration: 'none',
+                                fontWeight: 'bold'
+                            }}
+                        >
+                            Visit My Portfolio
+                        </a>
+                    </div>
                 </div>
             </div>
         </footer>
