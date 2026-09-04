@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // Google Apps Script to Handle Form Submissions
 // Instructions:
 // 1. Go to https://script.google.com/

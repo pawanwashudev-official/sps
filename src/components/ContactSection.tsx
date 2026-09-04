@@ -53,7 +53,7 @@ export default function ContactSection() {
                         Get in <span className="text-gradient-gold">Touch</span>
                     </h2>
                     <p style={{ fontSize: '1.1rem', color: 'var(--color-platinum)', marginBottom: '3rem' }}>
-                        We'd love to hear from you. Visit our campus or reach out digitally regarding admissions or inquiries.
+                        We&apos;d love to hear from you. Visit our campus or reach out digitally regarding admissions or inquiries.
                     </p>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -126,7 +126,7 @@ export default function ContactSection() {
                         <PremiumButton variant="primary" type="submit">
                             {status === 'submitting' ? 'Sending...' : status === 'success' ? 'Message Sent!' : 'Send Message'}
                         </PremiumButton>
-                        {status === 'success' && <p style={{ color: 'green', marginTop: '1rem' }}>Thank you! We'll contact you shortly.</p>}
+                        {status === 'success' && <p style={{ color: 'green', marginTop: '1rem' }}>Thank you! We&apos;ll contact you shortly.</p>}
                     </form>
                 </div>
             </motion.div>

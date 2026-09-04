@@ -17,7 +17,7 @@ export default function AboutUs() {
                         Legacy of <span className="text-gradient-gold">Leadership</span>
                     </h2>
                     <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'var(--color-platinum)', marginBottom: '1.5rem', opacity: 0.9 }}>
-                        Established in **2005** by the **Aryan Soumya Educational Trust**, Students Public School has evolved into Bihta's beacon of educational excellence. Under the visionary leadership of **Chairman & Principal Birendra Singh**, we have consistently nurtured 'Leaders of Tomorrow'.
+                        Established in **2005** by the **Aryan Soumya Educational Trust**, Students Public School has evolved into Bihta&apos;s beacon of educational excellence. Under the visionary leadership of **Chairman & Principal Birendra Singh**, we have consistently nurtured &apos;Leaders of Tomorrow&apos;.
                     </p>
                     <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'var(--color-platinum)', opacity: 0.9 }}>
                         Affiliated with **CBSE** (Central Board of Secondary Education), we offer a holistic curriculum from Nursery to Class 10, blending traditional values with modern pedagogy.

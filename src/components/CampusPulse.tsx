@@ -24,7 +24,7 @@ export default function CampusPulse() {
     );
 }
 
-function Counter({ stat, isInView }: { stat: any, isInView: boolean }) {
+function Counter({ stat, isInView }: { stat: { label: string, value: number, suffix: string }, isInView: boolean }) {
     const [count, setCount] = useState(0);
 
     useEffect(() => {

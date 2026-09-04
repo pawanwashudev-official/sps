@@ -15,7 +15,7 @@ export default function AdmissionsSection() {
                     Join the <span className="text-gradient-gold">Legacy</span>
                 </h2>
                 <p style={{ fontSize: '1.2rem', lineHeight: 1.6, color: 'var(--color-platinum)', marginBottom: '3rem' }}>
-                    Admissions open for Academic Session 2026-27. From Nursery to Class 10, we invite bright minds to be part of our excellence.
+                    Admissions open for Academic Session 2024-25 & 2025-26. From Nursery to Class 10, we invite bright minds to be part of our excellence.
                 </p>
 
                 <div className="glass-panel" style={{ padding: '3rem', borderRadius: '1.5rem', textAlign: 'left', marginBottom: '3rem' }}>

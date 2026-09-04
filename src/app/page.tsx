@@ -45,7 +45,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.5rem' }}
           >
-            Bihta's Premier <span className="text-gradient-gold">Educational</span> Destination
+            Bihta&apos;s Premier <span className="text-gradient-gold">Educational</span> Destination
           </motion.h1>
 
           <motion.p

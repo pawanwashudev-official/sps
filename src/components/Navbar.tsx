@@ -1,8 +1,7 @@
 'use client';
 import Link from 'next/link';
 import NextImage from 'next/image';
-import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import PremiumButton from './PremiumButton';
 import styles from './Navbar.module.css';
