@@ -60,7 +60,7 @@ function DesktopBackground() {
         let w = canvas.width = window.innerWidth;
         let h = canvas.height = window.innerHeight;
 
-        const particles: any[] = [];
+        const particles: { x: number, y: number, vx: number, vy: number, size: number, color: string }[] = [];
         const particleCount = 50;
 
         for (let i = 0; i < particleCount; i++) {

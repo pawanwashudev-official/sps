@@ -11,7 +11,7 @@ export default function HallOfFame() {
                     viewport={{ once: true }}
                     style={{ fontSize: '3rem', fontWeight: 700, marginBottom: '4rem' }}
                 >
-                    Bihta's <span className="text-gradient-gold">#1 Choice</span> for Toppers
+                    Bihta&apos;s <span className="text-gradient-gold">#1 Choice</span> for Toppers
                 </motion.h2>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
